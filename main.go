@@ -18,10 +18,16 @@ func main() {
 
 	r := router.New()
 
+	port := os.Getenv("SERVICE_PORT")
+
+	if len(port) == 0 {
+		logger.Fatal("Порт не задан")
+	}
+
 	r.GET("/", home)
 
-	logger.Print("Готовимся слушать порт...")
-	r.Listen(":8000")
+	logger.Print("Готовимся слушать порт " + port)
+	r.Listen(":" + port)
 }
 
 func home(c *router.Control) {
