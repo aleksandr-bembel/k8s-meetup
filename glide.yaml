@@ -1,0 +1,3 @@
+package: github.com/aleksandr-bembel/k8s-meetup
+import:
+- package: github.com/takama/router
